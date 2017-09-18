@@ -9,16 +9,12 @@ package main
 
 import "fmt"
 
-
-func mergeLists(list1, list2 []int) []int {
+func mergeLists(lists ...[]int) []int {
     var result []int
-
-    for _, element := range list1 {
-        result = append(result, element)
-    }
-
-    for _, element := range list2 {
-        result = append(result, element)
+    for _, list := range lists {
+        for _, val := range list {
+            result = append(result, val)
+        }
     }
     return result
 }
@@ -29,5 +25,4 @@ func main(){
     mergedList := mergeLists(sortedList1, sortedList2)
     fmt.Println("Merging Lists:", sortedList1, "and", sortedList2)
     fmt.Println("Merged List:", mergedList)
-
 }
