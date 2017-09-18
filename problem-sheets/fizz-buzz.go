@@ -11,7 +11,7 @@ and for the multiples of five print "Buzz".
 
  import "fmt"
 
-func FizzBuzz(fizzNum int, buzzNum int, start int, finish int){
+func FizzBuzz(fizzNum, buzzNum, start, finish int){
     for i := start; i < finish; i++ {
         if i % (fizzNum * buzzNum) == 0 {
             fmt.Println("FizzBuzz")
