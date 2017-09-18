@@ -11,3 +11,9 @@ import "fmt"
 func main() {
     fmt.Println("こんにちは世界");    
 }
+
+/*
+Output:
+
+こんにちは世界
+*/

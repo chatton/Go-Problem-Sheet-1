@@ -47,3 +47,23 @@ func main() {
     printResults(arr5)
 }
 
+/*
+Sample output:
+
+Input array: [1 2 3 4 5]
+Largest:  5 Smallest: 1
+
+Input array: [22 -14 -16 42 100]
+Largest:  100 Smallest: -16
+
+Input array: [-1 543 43 12 53]
+Largest:  543 Smallest: -1
+
+Input array: [44 33 22 -11 23]
+Largest:  44 Smallest: -11
+
+Input array: [1 12 23 54 4]
+Largest:  54 Smallest: 1
+
+*/
+

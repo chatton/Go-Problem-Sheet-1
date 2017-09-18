@@ -17,3 +17,12 @@ func main(){
     fmt.Println(util.Reverse("This string is reversed!"))
     fmt.Println(util.Reverse(util.Reverse("Reversed Twice")))
 }
+
+/*
+Output:
+
+olleH
+dlroW
+!desrever si gnirts sihT
+Reversed Twice
+*/

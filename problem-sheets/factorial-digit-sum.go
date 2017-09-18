@@ -36,3 +36,9 @@ func main() {
     totalSum := sumDigitsInString(factorialResult.String())
     fmt.Println("The sum of the digits of 100! is:", totalSum)
 }
+
+/*
+Sample output:
+
+The sum of the digits of 100! is: 648
+*/

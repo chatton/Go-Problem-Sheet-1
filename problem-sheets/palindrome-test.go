@@ -23,3 +23,12 @@ func main(){
     fmt.Println("hello is palindrome:", isPalindrome("hello"))
     fmt.Println("world is palindrome:", isPalindrome("world"))
 }
+
+/*
+Output:
+
+level is palindrome: true
+noon is palindrome: true
+hello is palindrome: false
+world is palindrome: false
+*/

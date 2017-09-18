@@ -44,3 +44,22 @@ func main() {
         displayMessage(secretNum, guess, numGuesses)
     }
 }
+
+/* Sample Input/Output
+
+Guess a number between 1 and 100
+50
+Go lower!
+Guess a number between 1 and 100
+25
+Go higher!
+Guess a number between 1 and 100
+30
+Go lower!
+Guess a number between 1 and 100
+26
+Go higher!
+Guess a number between 1 and 100
+27
+You guessed the number correctly! It took you 5 guesses
+*/
