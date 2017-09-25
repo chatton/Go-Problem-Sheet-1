@@ -1,9 +1,9 @@
 # Go Problem Sheet 1
 My name is Cian Hatton, I'm currently in my 3rd year studying Software Development at [GMIT](http://www.gmit.ie/).
 
-I created this repository to hold my solutions to to this [problem sheet](https://data-representation.github.io/problems/go-fundamentals.html).
+I created this repository to hold my solutions to this [problem sheet](https://data-representation.github.io/problems/go-fundamentals.html).
 
-This is problem sheet 1 for the Data Representation and Querying module.
+This is problem sheet 1 for the [Data Representation and Querying](https://data-representation.github.io/) module.
 
 All solutions are written in the [Go](https://golang.org/) programming language.
 
