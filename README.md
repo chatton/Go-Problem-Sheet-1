@@ -9,6 +9,10 @@ All solutions are written in the [Go](https://golang.org/) programming language.
 
 In order to run the files, first clone the repository.
 
+```bash
+> git clone https://github.com/CHatton/Go-Problem-Sheet-1.git
+```
+
 Make sure that you have the [Go compiler](https://golang.org/dl/)  installed.
 
 Navigate to the folder of the file you want to run.
