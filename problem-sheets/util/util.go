@@ -1,7 +1,7 @@
 package util
 
 func Reverse(stringToReverse string) string {
-    // based on this SO answer
+    // adapted from this SO answer
     // https://stackoverflow.com/questions/1752414/how-to-reverse-a-string-in-go
     runes := []rune(stringToReverse) // make an array full of the characters in the string
     for i, rune := range stringToReverse {

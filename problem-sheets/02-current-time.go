@@ -7,13 +7,13 @@ Write a program that prints the current time and date to the console.
 package main
 
 import (
-    "fmt"
+	"fmt"
 	// import the 'time' package for the time.Now function which gives back the current time
-    "time" 
+	"time"
 )
 
-func main(){
-    fmt.Println("The current time is," , time.Now());
+func main() {
+	fmt.Println("The current time is,", time.Now())
 }
 
 /*

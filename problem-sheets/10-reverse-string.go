@@ -7,15 +7,16 @@ Write a function to reverse a string in Go.
 package main
 
 import (
-    "./util"
-    "fmt"
+	// for the Reverse function.
+	"./util"
+	"fmt"
 )
 
-func main(){
-    fmt.Println(util.Reverse("Hello"))
-    fmt.Println(util.Reverse("World"))
-    fmt.Println(util.Reverse("This string is reversed!"))
-    fmt.Println(util.Reverse(util.Reverse("Reversed Twice")))
+func main() {
+	fmt.Println(util.Reverse("Hello"))
+	fmt.Println(util.Reverse("World"))
+	fmt.Println(util.Reverse("This string is reversed!"))
+	fmt.Println(util.Reverse(util.Reverse("Reversed Twice")))
 }
 
 /*
