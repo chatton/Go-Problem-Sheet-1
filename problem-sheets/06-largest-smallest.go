@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem description
 
 Write a function that returns the largest and smallest elements in a list.

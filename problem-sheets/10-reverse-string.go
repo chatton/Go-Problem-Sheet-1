@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem description
 
 Write a function to reverse a string in Go.

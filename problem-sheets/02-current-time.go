@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem description
 
 Write a program that prints the current time and date to the console.

@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem description
 
 Implement the square root function using Newton's method.

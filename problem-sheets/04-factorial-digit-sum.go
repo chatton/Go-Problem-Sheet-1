@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem description
 
 Write a function that calculates the sum of the digits of the factorial of a number.

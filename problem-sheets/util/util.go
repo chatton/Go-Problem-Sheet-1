@@ -1,3 +1,7 @@
+/*
+@author chatton
+*/
+
 package util
 
 func Reverse(stringToReverse string) string {

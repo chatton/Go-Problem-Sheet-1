@@ -1,4 +1,6 @@
 /*
+@author chatton
+
 Problem Description
 
 Write a function that merges two sorted lists into a new sorted list.
