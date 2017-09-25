@@ -11,17 +11,23 @@ package main
 
 import (
     "fmt"
+    // "math/big" is needed to store the result of 100!
     "math/big"
+    // "strings" is needed for "Split"
     "strings"
+    // "strconv" is needed to parse a string into an int using "Atoi"
     "strconv"
 )
 
 
+// function takes in a string, and returns the sum of the digits.
 func sumDigitsInString(resultString string) int {
+    // split on an empty string to convert a string into a list of characters
+    // strings.Split("abcd", ""); returns ["a", "b", "c", "d"]
     allDigits := strings.Split(resultString, "") // get a list of every digit
 
     totalSum := 0
-    for _, digit := range allDigits {
+    for _, digit := range allDigits { // we don't care about the index, only the digit itself.
         val, _ := strconv.Atoi(digit) // parse digit to value "9" -> 9
         totalSum += val
     }

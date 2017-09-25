@@ -9,12 +9,17 @@ It counts only as one try if they input the same number multiple times consecuti
 package main
 
 import (
+    // fmt is using for Println and also Scan to take in user input.
     "fmt"
+    // using math/rand package to generate random numbers.
     "math/rand"
+    // used to Seed the rand package.
     "time"
 )
 
-
+// function to display the correct message to the user
+// based on the randomly generated number, the user's guessed number
+// and the number of guesses they've made so far.
 func displayMessage(secretNum, guessedNum, numGuesses int) {
        if guessedNum == secretNum {
             fmt.Println("You guessed the number correctly! It took you", numGuesses, "guesses")
@@ -28,19 +33,21 @@ func displayMessage(secretNum, guessedNum, numGuesses int) {
 func main() {
     // so we don't get the same number each time
     rand.Seed(time.Now().UTC().UnixNano()) 
-    var secretNum = rand.Intn(100) + 1 // don't want to include 0
-    var numGuesses int = 0
-    var guess int = -1
+    var secretNum = rand.Intn(100) + 1 // don't want to include 0, (full range is 1 - 100)
+    var numGuesses int = 0 // the user hasn't guessed anything yet.
+    var guess int = -1 // pick some value that doesn't fall in the possible range.
     for guess != secretNum {
-        lastGuess := guess
-        
+        lastGuess := guess // to check if the current guess is the same as the last one
+    
         fmt.Println("Guess a number between 1 and 100")
-        fmt.Scan(&guess)
+        fmt.Scan(&guess) // read in user input into the "guess" variable
         
+        // there is only another guess if it's different from the last one
         if lastGuess != guess {
             numGuesses++
         }
 
+        // print the relevant message to the screen.
         displayMessage(secretNum, guess, numGuesses)
     }
 }

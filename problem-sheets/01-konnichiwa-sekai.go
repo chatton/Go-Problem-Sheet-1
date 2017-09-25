@@ -6,6 +6,10 @@ Write a program that prints "Hello, world!" in Japanese (using Japanese characte
 
 package main
 
+/*
+we want to use the Println function from the fmt package
+in order to print formated output.
+*/
 import "fmt"
 
 func main() {

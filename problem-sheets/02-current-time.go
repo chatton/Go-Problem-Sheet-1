@@ -8,7 +8,8 @@ package main
 
 import (
     "fmt"
-    "time"
+	// import the 'time' package for the time.Now function which gives back the current time
+    "time" 
 )
 
 func main(){
