@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(util.Reverse("World"))
 	fmt.Println(util.Reverse("This string is reversed!"))
 	fmt.Println(util.Reverse(util.Reverse("Reversed Twice")))
-    fmt.Println(util.Reverse("The quick brown 狐 jumped over the lazy 犬" ))
+	fmt.Println(util.Reverse("The quick brown 狐 jumped over the lazy 犬"))
 }
 
 /*
