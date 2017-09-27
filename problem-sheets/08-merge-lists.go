@@ -16,15 +16,14 @@ import (
 )
 
 // mergeLists function flattens a list of lists
-// into a single list.
+// into a single sorted list.
 func mergeLists(lists ...[]int) []int { // can provide a variable number of arguments using ...
 	var result []int
 	// go through every list
 	for _, list := range lists {
-		// append every value from every list to the result slice
-		for _, val := range list {
-			result = append(result, val)
-		}
+		// append takes a variable numbers of arguments
+		// using list... passes in the contents of the list as these arguments
+		result = append(result, list...)
 	}
 	// sorts the list of integers
 	sort.Ints(result)
