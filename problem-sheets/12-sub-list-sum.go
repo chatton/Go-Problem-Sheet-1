@@ -19,6 +19,10 @@ func sum(nums []int) int {
 	return tally
 }
 
+func SubListSum(nums []int, target int) bool {
+	return subListSum(nums, target, []int{})
+}
+
 func subListSum(nums []int, target int, partial []int) bool {
 	sumOfNumbers := sum(partial)
 	// I consulted this SO question https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
@@ -44,10 +48,10 @@ func subListSum(nums []int, target int, partial []int) bool {
 }
 
 func main() {
-	fmt.Println(subListSum([]int{1, 2, 2, -3}, 0, []int{}))
-	fmt.Println(subListSum([]int{1, 2, 2, 4}, 0, []int{}))
-	fmt.Println(subListSum([]int{-100, 50, 75, 25, -51}, 0, []int{}))
-	fmt.Println(subListSum([]int{-100, 50, 75, 25, -50}, 0, []int{}))
+	fmt.Println(SubListSum([]int{1, 2, 2, -3}, 0))
+	fmt.Println(SubListSum([]int{1, 2, 2, 4}, 0))
+	fmt.Println(SubListSum([]int{-100, 50, 75, 25, -51}, 0))
+	fmt.Println(SubListSum([]int{-100, 50, 75, 25, -50}, 0))
 }
 
 /*
