@@ -32,3 +32,15 @@ func main() {
 	fmt.Println(pairSum([]int{1, 1, 0, 0, 1}))
 	fmt.Println(pairSum([]int{0, 199, 423, -423, 3}))
 }
+
+/*
+Sample output
+
+4 and -4 summed to 0!
+true
+false
+0 and 0 summed to 0!
+true
+423 and -423 summed to 0!
+true
+*/
