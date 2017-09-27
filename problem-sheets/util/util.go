@@ -30,3 +30,12 @@ func Reverse(stringToReverse string) string {
     // Finally, convert back to UTF-8. 
     return string(runes)
 }
+
+// simple function to sum up the values in an integer list
+func Sum(nums []int) int {
+    tally := 0
+    for _, num := range nums {
+        tally += num
+    }
+    return tally
+}

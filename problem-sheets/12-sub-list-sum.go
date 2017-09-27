@@ -8,23 +8,17 @@ Write a function that takes a list of integers as input, and returns true if any
 
 package main
 
-import "fmt"
-
-// simple function to sum up the values in an integer list
-func sum(nums []int) int {
-	tally := 0
-	for _, num := range nums {
-		tally += num
-	}
-	return tally
-}
+import (
+	"./util" // for the sum function
+	"fmt"
+)
 
 func SubListSum(nums []int, target int) bool {
 	return subListSum(nums, target, []int{})
 }
 
 func subListSum(nums []int, target int, partial []int) bool {
-	sumOfNumbers := sum(partial)
+	sumOfNumbers := util.Sum(partial)
 	// I consulted this SO question https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
 	// to find out how to get every possible permutation of values.
 
