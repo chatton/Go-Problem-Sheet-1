@@ -9,24 +9,32 @@ Write a function that merges two sorted lists into a new sorted list.
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	// package for sorting values
+	"sort"
+)
 
 // mergeLists function flattens a list of lists
 // into a single list.
 func mergeLists(lists ...[]int) []int { // can provide a variable number of arguments using ...
 	var result []int
+	// go through every list
 	for _, list := range lists {
+		// append every value from every list to the result slice
 		for _, val := range list {
 			result = append(result, val)
 		}
 	}
+	// sorts the list of integers
+	sort.Ints(result)
 	return result
 }
 
 func main() {
-	sortedList1 := []int{1, 2, 3}
-	sortedList2 := []int{4, 5, 6}
-	sortedList3 := []int{7, 8, 9}
+	sortedList1 := []int{1, 4, 6}
+	sortedList2 := []int{2, 3, 5}
+	sortedList3 := []int{-1, 2, 22}
 	mergedList := mergeLists(sortedList1, sortedList2)
 	fmt.Println("Merging Lists:", sortedList1, "and", sortedList2)
 	fmt.Println("Merged List:", mergedList)
@@ -39,9 +47,10 @@ func main() {
 /*
 Sample output:
 
-Merging Lists: [1 2 3] and [4 5 6]
+Merging Lists: [1 4 6] and [2 3 5]
 Merged List: [1 2 3 4 5 6]
 
-Merging Lists: [1 2 3] , [4 5 6] and [7 8 9]
-Merged List: [1 2 3 4 5 6 7 8 9]
+Merging Lists: [1 4 6] , [2 3 5] and [-1 2 22]
+Merged List: [-1 1 2 2 3 4 5 6 22]
+
 */
