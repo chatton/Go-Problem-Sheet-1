@@ -12,6 +12,7 @@ package main
 import (
 	"fmt"
 	// package for sorting values
+	"./util"
 	"sort"
 )
 
@@ -31,25 +32,38 @@ func mergeLists(lists ...[]int) []int { // can provide a variable number of argu
 }
 
 func main() {
-	sortedList1 := []int{1, 4, 6}
-	sortedList2 := []int{2, 3, 5}
-	sortedList3 := []int{-1, 2, 22}
-	mergedList := mergeLists(sortedList1, sortedList2)
-	fmt.Println("Merging Lists:", sortedList1, "and", sortedList2)
-	fmt.Println("Merged List:", mergedList)
-	fmt.Println()
+	fmt.Println("How many lists do you want to merge?")
+	listOfLists := [][]int{}
+	numLists, err := util.ReadInt()
+	for err != nil {
+		fmt.Println("Enter a valid number.")
+		numLists, err = util.ReadInt()
+	}
+	for len(listOfLists) < numLists {
+		fmt.Println("Enter space separated integers")
+		if list, err := util.AsIntSlice(util.ReadLine()); err == nil {
+			fmt.Println("Adding list", list)
+			listOfLists = append(listOfLists, list)
+		}
+	}
+	fmt.Println("Merged and sorted list: ", mergeLists(listOfLists...))
 
-	fmt.Println("Merging Lists:", sortedList1, ",", sortedList2, "and", sortedList3)
-	fmt.Println("Merged List:", mergeLists(sortedList1, sortedList2, sortedList3))
 }
 
 /*
-Sample output:
+Sample output/input:
 
-Merging Lists: [1 4 6] and [2 3 5]
-Merged List: [1 2 3 4 5 6]
-
-Merging Lists: [1 4 6] , [2 3 5] and [-1 2 22]
-Merged List: [-1 1 2 2 3 4 5 6 22]
+How many lists do you want to merge?
+3
+Enter space separated integers
+1 4 9
+Adding list [1 4 9]
+Enter space separated integers
+3 6 0 23 4
+Adding list [3 6 0 23 4]
+Enter space separated integers
+5 9 2 3 4
+Adding list [5 9 2 3 4]
+Merged and sorted list:  [0 1 2 3 3 4 4 4 5 6 9 9 23]
 
 */
