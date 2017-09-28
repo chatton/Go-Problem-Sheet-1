@@ -11,7 +11,10 @@ For numbers which are multiples of both three and five print "FizzBuzz".
 
 package main
 
-import "fmt"
+import (
+	"./util"
+	"fmt"
+)
 
 // FizzBuzz function prints out every number between the start value (inclusive)
 // and the finish value (not-inclusive). If the number is divisible
@@ -38,110 +41,137 @@ func FizzBuzz(fizzNum, buzzNum, start, finish int) {
 }
 
 func main() {
-	FizzBuzz(3, 5, 1, 101)
+
+	fmt.Println("Enter Fizz number, Buzz number and finishing point space separated on one line. E.g. [3 5 100]")
+	choices, err := util.SplitLine(util.ReadLine())
+	if err == nil {
+		FizzBuzz(choices[0], choices[1], 1, choices[2]+1)
+	}
 }
 
 /*
 Sample output:
 
+Enter Fizz number, Buzz number and finishing point space separated on one line. E.g. [3 5 100]
+4 7 120
 1
 2
+3
 Fizz
-4
+5
+6
 Buzz
 Fizz
-7
-8
-Fizz
-Buzz
+9
+10
 11
 Fizz
 13
-14
-FizzBuzz
-16
-17
-Fizz
-19
 Buzz
+15
 Fizz
+17
+18
+19
+Fizz
+Buzz
 22
 23
 Fizz
-Buzz
+25
 26
-Fizz
-28
-29
+27
 FizzBuzz
+29
+30
 31
-32
 Fizz
+33
 34
 Buzz
 Fizz
 37
 38
+39
 Fizz
-Buzz
 41
-Fizz
+Buzz
 43
-44
-FizzBuzz
+Fizz
+45
 46
 47
 Fizz
-49
 Buzz
+50
+51
 Fizz
-52
 53
-Fizz
-Buzz
-56
-Fizz
+54
+55
+FizzBuzz
+57
 58
 59
-FizzBuzz
+Fizz
 61
 62
-Fizz
-64
 Buzz
 Fizz
+65
+66
 67
-68
 Fizz
+69
 Buzz
 71
 Fizz
 73
 74
-FizzBuzz
-76
-77
+75
 Fizz
-79
 Buzz
+78
+79
 Fizz
+81
 82
 83
-Fizz
-Buzz
-86
-Fizz
-88
-89
 FizzBuzz
-91
-92
+85
+86
+87
 Fizz
-94
+89
+90
 Buzz
+Fizz
+93
+94
+95
 Fizz
 97
-98
+Buzz
+99
+Fizz
+101
+102
+103
 Fizz
 Buzz
+106
+107
+Fizz
+109
+110
+111
+FizzBuzz
+113
+114
+115
+Fizz
+117
+118
+Buzz
+Fizz
 */
