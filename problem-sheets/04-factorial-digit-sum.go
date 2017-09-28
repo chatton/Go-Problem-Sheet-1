@@ -19,7 +19,7 @@ import (
 	"strings"
 	// "strconv" is needed to parse a string into an int using "Atoi"
 	"strconv"
-	// for ReadLine and SplitLine
+	// for ReadIn and AsIntSlice
 	"./util"
 )
 
@@ -39,20 +39,18 @@ func sumDigitsInString(resultString string) int {
 
 func main() {
 	fmt.Println("Enter a number to get the sum of the digits in its factorial.")
-	line := util.ReadLine()
-	choices, err := util.SplitLine(line)
-	for err != nil || len(choices) < 1{
+	num, err := util.ReadInt()
+	for err != nil {
 		fmt.Println("Invalid number, enter again.")
-		line := util.ReadLine()
-		choices, err = util.SplitLine(line)
+		num, err = util.ReadInt()
 	}
 
 	// we need to use bit.Int because we can't hold the value with standard types
 	bigIntptr := new(big.Int)
 	// don't need to write a factorial method, we can use MulRange to get the value.
-	factorialResult := bigIntptr.MulRange(1, int64(choices[0])) // equivalent to N x (N - 1) x (N - 2) x ... x 1
+	factorialResult := bigIntptr.MulRange(1, int64(num)) // equivalent to N x (N - 1) x (N - 2) x ... x 1
 	totalSum := sumDigitsInString(factorialResult.String())
-	fmt.Printf("The sum of the digits of %d! is: %d", choices[0], totalSum)
+	fmt.Printf("The sum of the digits of %d! is: %d", num, totalSum)
 }
 
 /*

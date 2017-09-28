@@ -8,7 +8,6 @@ import (
 	"bufio"
 	"os"
 	"strconv"
-    //"fmt"
     "strings"
 )
 
@@ -56,9 +55,15 @@ func ReadLine() string {
     
 }
 
-// split line functions takes a space seprated string and splits it up into
-// a slice of integers.
-func SplitLine(line string) ([]int, error) {
+func ReadInt() (int, error) {
+    scanner := bufio.NewScanner(os.Stdin)
+    scanner.Scan()
+    return strconv.Atoi(scanner.Text())
+}
+
+// functions takes a space seprated string and splits it up into
+//a slice of integers 
+func AsIntSlice(line string) ([]int, error) {
     splitLine := strings.Split(line, " ")
     result := []int{}
     for _, char := range splitLine {

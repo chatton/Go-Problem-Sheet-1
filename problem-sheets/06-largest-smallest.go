@@ -51,7 +51,7 @@ func printResults(array []int) {
 func main() {
 	fmt.Println("Please enter 1 or more space separated integers on a single line.")
 	line := util.ReadLine()
-	if arr, err := util.SplitLine(line); err == nil {
+	if arr, err := util.AsIntSlice(line); err == nil {
 		printResults(arr)
 	}
 }

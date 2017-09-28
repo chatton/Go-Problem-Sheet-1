@@ -15,8 +15,6 @@ import (
 	// using math/rand package to generate random numbers.
 	"math/rand"
 	// used to Seed the rand package.
-	//"strconv"
-	// to convert from string -> int
 	"./util"
 	"time"
 )
@@ -36,13 +34,12 @@ func displayMessage(secretNum, guessedNum, numGuesses int) { // only need to spe
 
 func getValidGuess() int {
 	fmt.Println("Please enter a number between 1 and 100")
-	line := util.ReadLine()
-	choices, err := util.SplitLine(line)
-	for err != nil || len(choices) < 1 || choices[0] < 1 || choices[0] > 100 {
+	num, err := util.ReadInt()
+	for err != nil || num < 1 || num > 100 {
 		fmt.Println("Please enter a number between 1 and 100")
-		choices, err = util.SplitLine(util.ReadLine())
+		num, err = util.ReadInt()
 	}
-	return choices[0]
+	return num
 
 }
 
