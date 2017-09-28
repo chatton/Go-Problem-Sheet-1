@@ -8,7 +8,10 @@ Write a function that returns the largest and smallest elements in a list.
 
 package main
 
-import "fmt"
+import (
+	"./util"
+	"fmt"
+)
 
 // takes in an int slice and returns 2 integers, the largest and smallest from the slice.
 func largestSmallest(array []int) (int, int) {
@@ -46,35 +49,19 @@ func printResults(array []int) {
 }
 
 func main() {
-	var arr1 = []int{1, 2, 3, 4, 5}
-	var arr2 = []int{22, -14, -16, 42, 100}
-	var arr3 = []int{-1, 543, 43, 12, 53}
-	var arr4 = []int{44, 33, 22, -11, 23}
-	var arr5 = []int{1, 12, 23, 54, 4}
-
-	printResults(arr1)
-	printResults(arr2)
-	printResults(arr3)
-	printResults(arr4)
-	printResults(arr5)
+	fmt.Println("Please enter 1 or more space separated numbers on a single line.")
+	line := util.ReadLine()
+	if arr, err := util.SplitLine(line); err == nil {
+		printResults(arr)
+	}
 }
 
 /*
-Sample output:
+Sample input/output:
 
-Input array: [1 2 3 4 5]
-Largest:  5 Smallest: 1
-
-Input array: [22 -14 -16 42 100]
-Largest:  100 Smallest: -16
-
-Input array: [-1 543 43 12 53]
-Largest:  543 Smallest: -1
-
-Input array: [44 33 22 -11 23]
-Largest:  44 Smallest: -11
-
-Input array: [1 12 23 54 4]
-Largest:  54 Smallest: 1
+Please enter 1 or more space separated numbers on a single line.
+1 2 3 4 5 6 7 -123 -42 23
+Input array: [1 2 3 4 5 6 7 -123 -42 23]
+Largest:  23 Smallest: -123
 
 */
