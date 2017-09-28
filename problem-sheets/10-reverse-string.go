@@ -15,19 +15,28 @@ import (
 )
 
 func main() {
-	fmt.Println(util.Reverse("Hello"))
-	fmt.Println(util.Reverse("World"))
-	fmt.Println(util.Reverse("This string is reversed!"))
-	fmt.Println(util.Reverse(util.Reverse("Reversed Twice")))
-	fmt.Println(util.Reverse("The quick brown 狐 jumped over the lazy 犬"))
+	fmt.Println("Enter word to reverse. (q to quit)")
+	word := util.ReadLine()
+	for word != "q" {
+		fmt.Println("Reversed:", util.Reverse(word))
+
+		fmt.Println("Enter word to reverse. (q to quit)")
+		word = util.ReadLine()
+	}
 }
 
 /*
 Output:
 
-olleH
-dlroW
-!desrever si gnirts sihT
-Reversed Twice
-犬 yzal eht revo depmuj 狐 nworb kciuq ehT
+Enter word to reverse. (q to quit)
+hello
+Reversed: olleh
+Enter word to reverse. (q to quit)
+hello world
+Reversed: dlrow olleh
+Enter word to reverse. (q to quit)
+what time is it?
+Reversed: ?ti si emit tahw
+Enter word to reverse. (q to quit)
+q
 */
