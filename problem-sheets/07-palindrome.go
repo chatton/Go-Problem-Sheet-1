@@ -23,10 +23,9 @@ func isPalindrome(inputString string) bool {
 }
 
 func main() {
-	fmt.Println("level is palindrome:", isPalindrome("level"))
-	fmt.Println("noon is palindrome:", isPalindrome("noon"))
-	fmt.Println("hello is palindrome:", isPalindrome("hello"))
-	fmt.Println("world is palindrome:", isPalindrome("world"))
+	fmt.Println("Enter a string to be tested as a palindrome.")
+	line := util.ReadLine()
+	fmt.Println(line, "is palindrome:", isPalindrome(line))
 }
 
 /*
