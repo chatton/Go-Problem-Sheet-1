@@ -10,10 +10,9 @@ Write a function that merges two sorted lists into a new sorted list.
 package main
 
 import (
-	"fmt"
-	// package for sorting values
 	"./util"
-	"sort"
+	"fmt"
+	"sort" // package for sorting values
 )
 
 // mergeLists function flattens a list of lists

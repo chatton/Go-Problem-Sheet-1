@@ -15,6 +15,7 @@ To begin with, just repeat that calculation 10 times and see how close you get t
 package main
 
 import (
+	"./util"
 	"fmt"
 	"math"
 )
@@ -44,38 +45,48 @@ func printSqrtComparison(number float64) {
 }
 
 func main() {
-	printSqrtComparison(16)
-	printSqrtComparison(88)
-	printSqrtComparison(100)
-	printSqrtComparison(44)
-	printSqrtComparison(42.64)
-	printSqrtComparison(856.454)
-	printSqrtComparison(22.412)
-	printSqrtComparison(99.23)
+	number := 0.0
+	var err error = nil
+	for number != -1 { // sentinal value
+		fmt.Println("Enter a value to see a sqrt comparisons. Enter -1 to quit.")
+		if number, err = util.ReadFloat(); err == nil && number != -1 {
+			printSqrtComparison(number)
+		}
+	}
+
 }
 
 /* Output
-math.Sqrt(16.000000) = 4.000000
-NewtonSqrt(16.000000) = 4.000000
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+67
+math.Sqrt(67.000000) = 8.185353
+NewtonSqrt(67.000000) = 8.185353
 
-math.Sqrt(88.000000) = 9.380832
-NewtonSqrt(88.000000) = 9.380832
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+4.54
+math.Sqrt(4.540000) = 2.130728
+NewtonSqrt(4.540000) = 2.130728
 
-math.Sqrt(100.000000) = 10.000000
-NewtonSqrt(100.000000) = 10.000000
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+3.14567
+math.Sqrt(3.145670) = 1.773604
+NewtonSqrt(3.145670) = 1.773604
 
-math.Sqrt(44.000000) = 6.633250
-NewtonSqrt(44.000000) = 6.633250
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+543
+math.Sqrt(543.000000) = 23.302360
+NewtonSqrt(543.000000) = 23.302360
 
-math.Sqrt(42.640000) = 6.529931
-NewtonSqrt(42.640000) = 6.529931
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+876
+math.Sqrt(876.000000) = 29.597297
+NewtonSqrt(876.000000) = 29.597297
 
-math.Sqrt(856.454000) = 29.265235
-NewtonSqrt(856.454000) = 29.265235
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+234
+math.Sqrt(234.000000) = 15.297059
+NewtonSqrt(234.000000) = 15.297059
 
-math.Sqrt(22.412000) = 4.734131
-NewtonSqrt(22.412000) = 4.734131
-
-math.Sqrt(99.230000) = 9.961426
-NewtonSqrt(99.230000) = 9.961426
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+-1
 */

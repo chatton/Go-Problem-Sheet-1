@@ -11,6 +11,9 @@ import (
     "strings"
 )
 
+// can re-use in the different parsing functions instead of creating new one every time
+var scanner *bufio.Scanner
+
 func Reverse(stringToReverse string) string {
 	// I consulted this SO question
 	// https://stackoverflow.com/questions/1752414/how-to-reverse-a-string-in-go
@@ -49,16 +52,21 @@ func Sum(nums []int) int {
 
 // simple function to read a line in from the console.
 func ReadLine() string {
-    scanner := bufio.NewScanner(os.Stdin)
+    if scanner == nil { 
+        scanner = bufio.NewScanner(os.Stdin)
+    }
+    
     scanner.Scan()
     return scanner.Text()
     
 }
 
 func ReadInt() (int, error) {
-    scanner := bufio.NewScanner(os.Stdin)
-    scanner.Scan()
-    return strconv.Atoi(scanner.Text())
+    return strconv.Atoi(ReadLine())
+}
+
+func ReadFloat() (float64, error) {
+    return strconv.ParseFloat(ReadLine(), 64)
 }
 
 // functions takes a space seprated string and splits it up into
