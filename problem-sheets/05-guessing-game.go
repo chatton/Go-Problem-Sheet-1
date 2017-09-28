@@ -15,12 +15,9 @@ import (
 	// using math/rand package to generate random numbers.
 	"math/rand"
 	// used to Seed the rand package.
-	"bufio"
-	// for budio.Scanner to read user input
-	"os"
-	// to get os.Stdin to read from keyboard
-	"strconv"
+	//"strconv"
 	// to convert from string -> int
+	"./util"
 	"time"
 )
 
@@ -37,30 +34,20 @@ func displayMessage(secretNum, guessedNum, numGuesses int) { // only need to spe
 	}
 }
 
-func getValidGuess(scanner *bufio.Scanner) int {
-	value := -1
-	for value <= 0 || value > 100 {
-		fmt.Println("Guess a number between 1 and 100")
-		scanner.Scan()               // read the next line
-		userChoice := scanner.Text() // get the text from the line
-
-		// try and parse an int from the string, if there's an error, display message and prompt again.
-		if val, err := strconv.Atoi(userChoice); err == nil {
-			if val < 1 || val > 100 { // a valid number was entered, check if it's within the correct range for the game.
-				fmt.Println("Please enter a number between 1 and 100")
-				continue
-			}
-			return val // a valid guess
-		}
-		// the number wasn't valid, there was an error converting from string to int.
-		fmt.Println("Please enter a valid number.")
+func getValidGuess() int {
+	fmt.Println("Please enter a number between 1 and 100")
+	line := util.ReadLine()
+	choices, err := util.SplitLine(line)
+	for err != nil || len(choices) < 1 || choices[0] < 1 || choices[0] > 100 {
+		fmt.Println("Please enter a number between 1 and 100")
+		choices, err = util.SplitLine(util.ReadLine())
 	}
-	return -1 // should never get here
+	return choices[0]
+
 }
 
 func main() {
 	// so we don't get the same number each time
-	scanner := bufio.NewScanner(os.Stdin) // use to take in user input, only make one and re-use
 	rand.Seed(time.Now().UTC().UnixNano())
 	var secretNum = rand.Intn(100) + 1 // don't want to include 0, (full range is 1 - 100)
 	var numGuesses int = 0             // the user hasn't guessed anything yet.
@@ -68,7 +55,7 @@ func main() {
 	for guess != secretNum {           // 'for' can act like a 'while' loop in Go
 		lastGuess := guess // to check if the current guess is the same as the last one
 
-		guess = getValidGuess(scanner)
+		guess = getValidGuess()
 
 		// there is only another guess if it's different from the last one
 		if lastGuess != guess {
@@ -82,31 +69,25 @@ func main() {
 
 /* Sample Input/Output
 
-Guess a number between 1 and 100
-a
-Please enter a valid number.
-Guess a number between 1 and 100
+Please enter a number between 1 and 100
+-10
+Please enter a number between 1 and 100
 101
 Please enter a number between 1 and 100
-Guess a number between 1 and 100
+0
+Please enter a number between 1 and 100
 50
+Go higher!
+Please enter a number between 1 and 100
+75
 Go lower!
-Guess a number between 1 and 100
-25
-Go lower!
-Guess a number between 1 and 100
-kjhgjhgj
-Please enter a valid number.
-Guess a number between 1 and 100
-15
-Go lower!
-Guess a number between 1 and 100
-10
-Go lower!
-Guess a number between 1 and 100
-5
-Go lower!
-Guess a number between 1 and 100
-4
-You guessed the number correctly! It took you 6 guesses
+Please enter a number between 1 and 100
+66
+Go higher!
+Please enter a number between 1 and 100
+70
+Go higher!
+Please enter a number between 1 and 100
+73
+You guessed the number correctly! It took you 5 guesses
 */
