@@ -41,7 +41,7 @@ func main() {
 	fmt.Println("Enter a number to get the sum of the digits in its factorial.")
 	line := util.ReadLine()
 	choices, err := util.SplitLine(line)
-	for err != nil {
+	for err != nil || len(choices) < 1{
 		fmt.Println("Invalid number, enter again.")
 		line := util.ReadLine()
 		choices, err = util.SplitLine(line)
