@@ -19,6 +19,8 @@ import (
 	"strings"
 	// "strconv" is needed to parse a string into an int using "Atoi"
 	"strconv"
+	// for ReadLine and SplitLine
+	"./util"
 )
 
 // function takes in a string, and returns the sum of the digits.
@@ -36,16 +38,31 @@ func sumDigitsInString(resultString string) int {
 }
 
 func main() {
+	fmt.Println("Enter a number to get the sum of the digits in its factorial.")
+	line := util.ReadLine()
+	choices, err := util.SplitLine(line)
+	for err != nil {
+		fmt.Println("Invalid number, enter again.")
+		line := util.ReadLine()
+		choices, err = util.SplitLine(line)
+	}
+
 	// we need to use bit.Int because we can't hold the value with standard types
 	bigIntptr := new(big.Int)
 	// don't need to write a factorial method, we can use MulRange to get the value.
-	factorialResult := bigIntptr.MulRange(1, 100) // equivalent to 100 x 99 x 98 x ... x 1
+	factorialResult := bigIntptr.MulRange(1, int64(choices[0])) // equivalent to N x (N - 1) x (N - 2) x ... x 1
 	totalSum := sumDigitsInString(factorialResult.String())
-	fmt.Println("The sum of the digits of 100! is:", totalSum)
+	fmt.Printf("The sum of the digits of %d! is: %d", choices[0], totalSum)
 }
 
 /*
 Sample output:
 
-The sum of the digits of 100! is: 648
+Enter a number to get the sum of the digits in its factorial.
+gfd
+Invalid number, enter again.
+werw
+Invalid number, enter again.
+125
+The sum of the digits of 125! is: 855
 */
