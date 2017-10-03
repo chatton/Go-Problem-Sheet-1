@@ -48,7 +48,7 @@ Then use the command
 > go test test\util_test.go
 ```
 
-This will run all of the tests in the test suite. For more information about testing in Go, see [The Docs]{https://golang.org/pkg/testing/}.
+This will run all of the tests in the test suite. For more information about testing in Go, see [The Docs](https://golang.org/pkg/testing/).
 
 You should get an output that looks like this.
 
