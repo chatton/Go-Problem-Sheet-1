@@ -1,7 +1,7 @@
 package main
 
 import (
-	"../problem-sheets/util"
+	"../problem-sheets/util" // the package under test
 	"testing"
 )
 
@@ -56,6 +56,7 @@ func TestAsIntSlice(t *testing.T) {
 		{"2 34 5 6", []int{2, 34, 5, 6}},
 		{"-2 32 -43 23", []int{-2, 32, -43, 23}},
 		{"-3 43 23 12 0 0 0", []int{-3, 43, 23, 12, 0, 0, 0}},
+		{"", []int{}},
 	}
 
 	for _, testCase := range testCases {
