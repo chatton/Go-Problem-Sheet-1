@@ -39,4 +39,29 @@ Or you can simply use the command
 > go run <file-name>
 ```
 
+There are some test cases included in this repository. To run them
+navigate to the root of the project.
+
+Then use the command
+
+```bash
+> go test test\util_test.go
+```
+
+This will run all of the tests in the test suite. For more information about testing in Go, see [The Docs]{https://golang.org/pkg/testing/}.
+
+You should get an output that looks like this.
+
+```bash
+=== RUN   TestReverseString
+--- PASS: TestReverseString (0.00s)
+=== RUN   TestSum
+--- PASS: TestSum (0.00s)
+=== RUN   TestAsIntSlice
+--- PASS: TestAsIntSlice (0.00s)
+PASS
+ok      command-line-arguments  0.020s
+```
+
+
 
