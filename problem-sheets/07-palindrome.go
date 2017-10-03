@@ -23,8 +23,7 @@ func isPalindrome(inputString string) bool {
 }
 
 func main() {
-	fmt.Println("Enter a string to be tested as a palindrome.")
-	line := util.ReadLine()
+	line := util.ReadLine("Enter a string to be tested as a palindrome.")
 	fmt.Println(line, "is palindrome:", isPalindrome(line))
 }
 

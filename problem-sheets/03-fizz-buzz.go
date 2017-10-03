@@ -41,9 +41,8 @@ func FizzBuzz(fizzNum, buzzNum, start, finish int) {
 }
 
 func main() {
-
-	fmt.Println("Enter Fizz number, Buzz number and finishing point space separated on one line. E.g. [3 5 100]")
-	choices, err := util.AsIntSlice(util.ReadLine())
+	line := util.ReadLine("Enter Fizz number, Buzz number and finishing point space separated on one line. E.g. [3 5 100]")
+	choices, err := util.AsIntSlice(line)
 	if err == nil {
 		FizzBuzz(choices[0], choices[1], 1, choices[2]+1)
 	}

@@ -38,11 +38,9 @@ func sumDigitsInString(resultString string) int {
 }
 
 func main() {
-	fmt.Println("Enter a number to get the sum of the digits in its factorial.")
-	num, err := util.ReadInt()
+	num, err := util.ReadInt("Enter a number to get the sum of the digits in its factorial.")
 	for err != nil {
-		fmt.Println("Invalid number, enter again.")
-		num, err = util.ReadInt()
+		num, err = util.ReadInt("Invalid number, enter again.")
 	}
 
 	// we need to use bit.Int because we can't hold the value with standard types

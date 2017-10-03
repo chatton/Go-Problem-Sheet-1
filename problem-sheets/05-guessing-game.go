@@ -33,11 +33,9 @@ func displayMessage(secretNum, guessedNum, numGuesses int) { // only need to spe
 }
 
 func getValidGuess() int {
-	fmt.Println("Please enter a number between 1 and 100")
-	num, err := util.ReadInt()
+	num, err := util.ReadInt("Please enter a number between 1 and 100")
 	for err != nil || num < 1 || num > 100 {
-		fmt.Println("Please enter a number between 1 and 100")
-		num, err = util.ReadInt()
+		num, err = util.ReadInt("Please enter a number between 1 and 100")
 	}
 	return num
 

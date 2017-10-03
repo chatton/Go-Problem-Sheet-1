@@ -12,7 +12,8 @@ package main
 import (
 	"./util"
 	"fmt"
-	"sort" // package for sorting values
+	"sort"    // package for sorting values
+	"strings" // for string conversions.
 )
 
 // mergeLists function flattens a list of lists
@@ -31,18 +32,20 @@ func mergeLists(lists ...[]int) []int { // can provide a variable number of argu
 }
 
 func main() {
-	fmt.Println("How many lists do you want to merge?")
 	listOfLists := [][]int{}
-	numLists, err := util.ReadInt()
+	numLists, err := util.ReadInt("How many lists do you want to merge?")
 	for err != nil {
-		fmt.Println("Enter a valid number.")
-		numLists, err = util.ReadInt()
+		numLists, err = util.ReadInt("Enter a valid number.")
 	}
 	for len(listOfLists) < numLists {
-		fmt.Println("Enter space separated integers")
-		if list, err := util.AsIntSlice(util.ReadLine()); err == nil {
+		// allow for any number of spaces between inputs, e.g. "12  43    -12   32  "
+		line := util.ReadLine("Enter space separated integers")
+		line = strings.Join(strings.Fields(line), " ")      // rejoin the list into a single string
+		if list, err := util.AsIntSlice(line); err == nil { // get the actual integer values from the string.
 			fmt.Println("Adding list", list)
 			listOfLists = append(listOfLists, list)
+		} else {
+			fmt.Println("Numbers entered were invalid. Make sure to enter a space separated list of integers.")
 		}
 	}
 	fmt.Println("Merged and sorted list: ", mergeLists(listOfLists...))

@@ -48,8 +48,7 @@ func main() {
 	number := 0.0
 	var err error = nil
 	for number != -1 { // sentinal value
-		fmt.Println("Enter a value to see a sqrt comparisons. Enter -1 to quit.")
-		if number, err = util.ReadFloat(); err == nil && number != -1 {
+		if number, err = util.ReadFloat("Enter a value to see a sqrt comparisons. Enter -1 to quit."); err == nil && number != -1 {
 			printSqrtComparison(number)
 		}
 	}

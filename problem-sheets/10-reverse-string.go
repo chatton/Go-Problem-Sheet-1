@@ -15,13 +15,13 @@ import (
 )
 
 func main() {
-	fmt.Println("Enter word to reverse. (q to quit)")
-	word := util.ReadLine()
+
+	word := util.ReadLine("Enter word to reverse. (q to quit)")
 	for word != "q" {
 		fmt.Println("Reversed:", util.Reverse(word))
 
-		fmt.Println("Enter word to reverse. (q to quit)")
-		word = util.ReadLine()
+		fmt.Println()
+		word = util.ReadLine("Enter word to reverse. (q to quit)")
 	}
 }
 

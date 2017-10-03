@@ -10,7 +10,7 @@ import (
 	"strconv"
     "strings"
     "unicode/utf8"
-
+    "fmt"
 )
 
 // can re-use in the different parsing functions instead of creating new one every time
@@ -27,7 +27,7 @@ func Reverse(stringToReverse string) string {
     numRunes := utf8.RuneCountInString(stringToReverse)
     runes := []rune(stringToReverse)
     // reverse the values in the rune slice.
-    for i := 0; i < num/2; i++ {
+    for i := 0; i < numRunes/2; i++ {
         runes[i], runes[numRunes-1-i] = runes[numRunes-1-i], runes[i]
     }
     return string(runes) // convert the slice back into a string.
@@ -43,22 +43,22 @@ func Sum(nums []int) int {
 }
 
 // simple function to read a line in from the console.
-func ReadLine() string {
+func ReadLine(prompt string) string {
     if scanner == nil { 
         scanner = bufio.NewScanner(os.Stdin)
     }
-    
+    fmt.Println(prompt)
     scanner.Scan()
     return scanner.Text()
     
 }
 
-func ReadInt() (int, error) {
-    return strconv.Atoi(ReadLine())
+func ReadInt(prompt string) (int, error) {
+    return strconv.Atoi(ReadLine(prompt))
 }
 
-func ReadFloat() (float64, error) {
-    return strconv.ParseFloat(ReadLine(), 64)
+func ReadFloat(prompt string) (float64, error) {
+    return strconv.ParseFloat(ReadLine(prompt), 64)
 }
 
 // functions takes a space seprated string and splits it up into
