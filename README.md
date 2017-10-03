@@ -45,7 +45,7 @@ navigate to the root of the project.
 Then use the command
 
 ```bash
-> go test test\util_test.go
+> go test -v test\util_test.go
 ```
 
 This will run all of the tests in the test suite. For more information about testing in Go, see [The Docs](https://golang.org/pkg/testing/).
