@@ -24,23 +24,26 @@ func getNextZ(z, x float64) float64 {
 	return z - ((z*z - x) / (2 * z))
 }
 
-func NewtonSqrt(number float64, numIterations int) float64 {
-	newtonSqrt := 1.0 // guess 1.0 for all numbers
-	for i := 0; i < numIterations; i++ {
+func NewtonSqrt(number float64, maxIterations int) (float64, int) {
+	newtonSqrt := 1.0  // guess 1.0 for all numbers
+	numIterations := 0 // keep track of how many times we iterated through
+	for i := 0; i < maxIterations; i++ {
 		lastValue := newtonSqrt
 		// compute the next Z once
 		newtonSqrt = getNextZ(newtonSqrt, number)
 		if newtonSqrt == lastValue {
 			break // stop computing when we start getting back the same value.
 		}
+		numIterations++
 	}
-	return newtonSqrt
+	return newtonSqrt, numIterations
 }
 
 // function prints a formatted output of a comparison between both Sqrt functions.
 func printSqrtComparison(number float64) {
 	fmt.Printf("math.Sqrt(%f) = %f\n", number, math.Sqrt(number))
-	fmt.Printf("NewtonSqrt(%f) = %f\n", number, NewtonSqrt(number, 10))
+	newtonNum, numIterations := NewtonSqrt(number, 100)
+	fmt.Printf("NewtonSqrt(%f) = %f in %d iterations.\n", number, newtonNum, numIterations)
 	fmt.Println()
 }
 
@@ -55,36 +58,38 @@ func main() {
 
 }
 
-/* Output
+/* Input / Output
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
 67
 math.Sqrt(67.000000) = 8.185353
-NewtonSqrt(67.000000) = 8.185353
+NewtonSqrt(67.000000) = 8.185353 in 8 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
 4.54
 math.Sqrt(4.540000) = 2.130728
-NewtonSqrt(4.540000) = 2.130728
+NewtonSqrt(4.540000) = 2.130728 in 6 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
 3.14567
 math.Sqrt(3.145670) = 1.773604
-NewtonSqrt(3.145670) = 1.773604
+NewtonSqrt(3.145670) = 1.773604 in 100 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
-543
-math.Sqrt(543.000000) = 23.302360
-NewtonSqrt(543.000000) = 23.302360
+542
+math.Sqrt(542.000000) = 23.280893
+NewtonSqrt(542.000000) = 23.280893 in 9 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
 876
 math.Sqrt(876.000000) = 29.597297
-NewtonSqrt(876.000000) = 29.597297
+NewtonSqrt(876.000000) = 29.597297 in 10 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
-234
-math.Sqrt(234.000000) = 15.297059
-NewtonSqrt(234.000000) = 15.297059
+gdfgdf
+Enter a value to see a sqrt comparisons. Enter -1 to quit.
+666
+math.Sqrt(666.000000) = 25.806976
+NewtonSqrt(666.000000) = 25.806976 in 9 iterations.
 
 Enter a value to see a sqrt comparisons. Enter -1 to quit.
 -1
