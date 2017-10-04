@@ -17,8 +17,6 @@ import (
 	"math/big"
 	// "strings" is needed for "Split"
 	"strings"
-	// "strconv" is needed to parse a string into an int using "Atoi"
-	"strconv"
 	// for ReadIn and AsIntSlice
 	"./util"
 )
@@ -27,14 +25,11 @@ import (
 func sumDigitsInString(resultString string) int {
 	// split on an empty string to convert a string into a list of characters
 	// strings.Split("abcd", ""); returns ["a", "b", "c", "d"]
-	allDigits := strings.Split(resultString, "") // get a list of every digit
-
-	totalSum := 0
-	for _, digit := range allDigits { // we don't care about the index, only the digit itself.
-		val, _ := strconv.Atoi(digit) // parse digit to value "9" -> 9
-		totalSum += val               // tally up the total value
-	}
-	return totalSum
+	// strings.Join([]string{"a", "b", "c", "d"}, " ") returns "a b c d"
+	allDigits := strings.Join(strings.Split(resultString, ""), " ") // get a list of every digit
+	// validation for the number happens in main so we won't handle the error here, ignore it with _
+	intSlice, _ := util.AsIntSlice(allDigits) // convert the space separated slice into slice of ints
+	return util.Sum(intSlice)                 // sum up the slice of ints.
 }
 
 func main() {
